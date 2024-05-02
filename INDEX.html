@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pytobot Math Assistant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://wallpaperaccess.com/full/1462989.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+
+        #container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+        }
+
+        h1, h2, p {
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+        }
+
+        /* Syntax highlighting for PHP code blocks */
+        pre {
+            color: #f8f8f2;
+            background: #272822;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .keyword {
+            color: #f92672;
+        }
+
+        .string {
+            color: #e6db74;
+        }
+
+        .comment {
+            color: #75715e;
+        }
+
+        .variable {
+            color: #a6e22e;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>¡Hello! My name is Pytobot</h1>
+        <p>I am your math virtual assistant. My favorite sport is the petanque and my animal the tardigrade. I would like to know about yours, but I won't ask them for respect.</p>
+        <p>¡I would like to meet you first! ¿What is your name?</p>
+        <form action="#" method="post">
+            <input type="text" name="name" placeholder="Enter your name" required>
+            <input type="submit" value="Submit">
+        </form>
+        <div class="result">
+            <!-- PHP code to handle the form submission and perform calculations -->
+            <pre>
+                <code class="php">
+                    <?php
+                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                        $name = $_POST["name"];
+                        echo "<p>¡A pleasure to meet you, $name!</p>";
+                        echo "<p>Today we are going to learn and do some problems about the topics that you have seen in class: superficial area and volumes</p>";
+                        echo "<p>¡Let's learn!</p>";
+
+                        // Handle different 3D shapes and perform calculations
+                        if (isset($_POST["figura"])) {
+                            $figura = $_POST["figura"];
+                            switch ($figura) {
+                                case "cubo":
+                                    $lado = $_POST["lado"];
+                                    $asc = $lado ** 2;
+                                    $volc = $lado ** 3;
+                                    echo "<p>The superficial area of all the cube faces is $asc squared meters</p>";
+                                    echo "<p>The volume of the cube is $volc cubic meters</p>";
+                                    break;
+                                case "triangular_prism":
+                                    $alturab = $_POST["alturab"];
+                                    $base = $_POST["base"];
+                                    $alturap = $_POST["alturap"];
+                                    $areat = ($base * $alturab) * 2;
+                                    $arearect = $base * $alturap;
+                                    $volumenp = $areat * $alturap;
+                                    echo "<p>The area of the triangular faces are $areat squared meters, and the rectangular faces of $arearect squared meters.</p>";
+                                    echo "<p>The volume is $volumenp cubic meters.</p>";
+                                    break;
+                                case "rectangular_prism":
+                                    $alturabr = $_POST["alturabr"];
+                                    $widthr = $_POST["widthr"];
+                                    $alturapr = $_POST["alturapr"];
+                                    $areabaserect = $alturabr * $widthr;
+                                    $areacararectbase = $widthr * $alturapr;
+                                    $areacararectaltura = $alturapr * $alturabr;
+                                    $volumenprr = $areabaserect * $alturapr;
+                                    echo "<p>The area of the base is $areabaserect square meters.</p>";
+                                    echo "<p>The area of the face adjacent to the longitude is $areacararectbase square meters.</p>";
+                                    echo "<p>The other face measures $areacararectaltura.</p>";
+                                    echo "<p>The volume is $volumenprr cubic meters.</p>";
+                                    break;
+                                case "pyramid":
+                                    $largopir = $_POST["largopir"];
+                                    $anchopir = $_POST["anchopir"];
+                                    $altpir = $_POST["altpir"];
+                                    $areabasepir = $largopir * $anchopir;
+                                    $volumenpir = (1/3) * $largopir * $anchopir * $altpir;
+                                    echo "<p>The area of the base is $areabasepir squared meters.</p>";
+                                    echo "<p>The volume of the pyramid is $volumenpir cubic meters.</p>";
+                                    break;
+                                case "cone":
+                                    $radiocono = $_POST["radiocono"];
+                                    $altocono = $_POST["altocono"];
+                                    $areabasecono = pi() * $radiocono * $radiocono;
+                                    $volumencono = $areabasecono * $altocono * (1/3);
+                                    echo "<p>The area of the base is $areabasecono square meters.</p>";
+                                    echo "<p>The volume of the cone is $volumencono cubic meters.</p>";
+                                    break;
+                                case "sphere":
+                                    $radioesfera = $_POST["radioesfera"];
+                                    $areaesfera = 4 * pi() * $radioesfera * $radioesfera;
+                                    $volumenesfera = (4/3) * pi() * $radioesfera * $radioesfera * $radioesfera;
+                                    echo "<p>The area of the sphere is $areaesfera squared meters.</p>";
+                                    echo "<p>The volume of the sphere is $volumenesfera cubic meters.</p>";
+                                    break;
+                                case "cylinder":
+                                    $radiocilindro = $_POST["radiocilindro"];
+                                    $altcilindro = $_POST["altcilindro"];
+                                    $areabasecilindro = pi() * $radiocilindro * $radiocilindro;
+                                    $areasuperficiecurvacilindro = 2 * pi() * $radiocilindro * $altcilindro;
+                                    $volumencilindro = $areabasecilindro * $altcilindro;
+                                    echo "<p>The area of the base is $areabasecilindro squared meters.</p>";
+                                    echo "<p>The area of the body of the cylinder is $areasuperficiecurvacilindro squared meters.</p>";
+                                    echo "<p>The volume of the cylinder is $volumencilindro cubic meters.</p>";
+                                    break;
+                            }
+                        }
+                    }
+                    ?>
+                </code>
+            </pre>
+        </div>
+    </div>
+</body>
+
+</html>
